@@ -1,0 +1,111 @@
+.menu label {
+    height: 10px;
+    background: gray;
+    display: block;
+    margin: 0;
+}
+
+.menu img{
+    position: absolute;
+    top: 0px;
+}
+
+input[type="checkbox"].on-off{
+    display: none;
+}
+
+.menu ul {
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background: gray;
+}
+
+.menu li {
+    padding: 5px;
+}
+
+input[type="checkbox"].on-off + ul{
+    height: 0;
+    overflow: hidden;
+}
+
+input[type="checkbox"].on-off:checked + ul{
+    height: 150px;
+}
+
+html,body { height:100%; }
+
+body{
+    background-image: url("/jtts/faces/javax.faces.resource/bg1.png?ln=image");
+    background-repeat:repeat;
+}
+
+.sidemenu {
+    position:absolute;top:0px;
+    width:10px;
+    height:100%;
+    float:left;
+    background: gray;
+}
+
+.sidemenu label{
+    width: 200px;
+    height:100%;
+    background: gray;
+    display: block;
+    margin: 0;
+}
+
+.sidemenu img{
+    position: relative;
+    top: 48%;
+}
+
+.sidemenu input[type="checkbox"].on-off + ul{
+    width: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+.sidemenu input[type="checkbox"].on-off:checked + ul{
+    width: 100px;
+    height: 100%;
+}
+
+.sidemenu ul {
+    position:absolute;top: 0px;left: 10px;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    background: gray;
+}
+
+.sidemenu div{
+    position: relative; top: 40%;
+}
+
+.sidemenu li {
+    padding: 5px;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.userinfo{
+    position: absolute;
+    top: 200px;
+    right: 0px;
+    width: 200px;
+    height: 200px;
+    background: darkcyan;
+}
