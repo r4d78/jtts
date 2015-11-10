@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <head jsfc="h:head">
+        <title>TODO supply a title</title>
+
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <h:outputStylesheet library="css" name="bootstrap.min.css"/>
+        <h:outputStylesheet library="css" name="top.css"/>
+        <h:outputScript library="js" name="bootstrap.min.js"/>
+        <h:outputScript library="js" name="jquery-2.1.4.min.js"/>
+    </head>
+    <body>
+        <h:form>
+            <table>
+                <tr><td>ID</td><td>:</td> <td><h:inputText value="#{authBean.name}" maxlength="16" size="16"/></td></tr>
+                <tr><td>PASS</td> <td>:</td> <td><h:inputText value="#{authBean.password}" maxlength="16" size="16"/></td> </tr>
+                <tr><td>ID</td>   <td>:</td> <td><h:outputText value="#{authBean.name}"/></td></tr>
+                <tr><td>PASS</td> <td>:</td> <td><h:outputText value="#{authBean.password}"/></td></tr>
+                <tr><td>&#160;</td></tr>
+                <tr><td></td><td></td><td><h:commandButton class="btn btn-primary" value="ログイン" action="#{authBean.none()}"/>&#160;
+                        <h:commandButton class="btn btn-success" value="登録" action="#{authBean.none()}"/></td></tr>
+            </table>
+            <br />
+        </h:form>
+    </body>
+</html>
