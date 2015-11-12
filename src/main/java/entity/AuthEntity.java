@@ -18,7 +18,7 @@ import lombok.Data;
  */
 @Entity
 @Data
-public class AuthEntity implements Serializable {
+public class AuthEntity implements Serializable, IsEntity {
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

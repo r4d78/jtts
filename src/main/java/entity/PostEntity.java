@@ -14,7 +14,7 @@ import lombok.Data;
  */
 @Entity
 @Data
-public class PostEntity implements Serializable {
+public class PostEntity implements Serializable, IsEntity {
 
     private static final long serialVersionUID = 1L;
     @Id

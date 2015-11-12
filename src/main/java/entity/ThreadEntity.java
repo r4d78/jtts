@@ -19,7 +19,7 @@ import lombok.Data;
 @NamedQueries(
     @NamedQuery(name="Thread.findAll", query="SELECT t FROM ThreadEntity t")
 )
-public class ThreadEntity implements Serializable {
+public class ThreadEntity implements Serializable, IsEntity {
 
     private static final long serialVersionUID = 1L;
     @Id
