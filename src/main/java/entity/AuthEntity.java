@@ -10,6 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import lombok.Data;
 
 /**
@@ -18,6 +20,9 @@ import lombok.Data;
  */
 @Entity
 @Data
+@NamedQueries({
+    @NamedQuery(name = "AuthEntity.canLogin", query = "SELECT a FROM AuthEntity a WHERE a.id = :id AND a.password = :password"),
+    @NamedQuery(name = "AuthEntity.something", query = "SELECT max(a.id) From AuthEntity a")})
 public class AuthEntity implements Serializable, IsEntity {
     private static final long serialVersionUID = 1L;
     @Id
