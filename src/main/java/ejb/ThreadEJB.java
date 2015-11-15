@@ -10,7 +10,7 @@ import javax.persistence.PersistenceContext;
  * @author dni
  */
 @Stateless
-public class PostEJB {
+public class ThreadEJB {
 
     @PersistenceContext(unitName = "com.mycompany_jtts_war_1.0-SNAPSHOTPU")
     private EntityManager em;

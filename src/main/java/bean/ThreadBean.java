@@ -1,6 +1,6 @@
 package bean;
 
-import ejb.PostEJB;
+import ejb.ThreadEJB;
 import entity.PostEntity;
 import java.sql.Date;
 import javax.ejb.EJB;
@@ -15,7 +15,7 @@ import lombok.Data;
 @Named
 @Data
 @RequestScoped
-public class PostBean {
+public class ThreadBean {
     private Long id;
     private Long boardId;
     private Long postNum;
@@ -27,7 +27,7 @@ public class PostBean {
     private String message;
     
     @EJB
-    PostEJB postEJB;
+    ThreadEJB postEJB;
     
     public String create(){
         PostEntity post = new PostEntity(id, boardId, postNum, name, content, postDate, orgPost);
@@ -37,7 +37,7 @@ public class PostBean {
             System.out.println("error occured");
             e.printStackTrace();
         }
-        return "threadList.xhtml";
+        return "thread_list.xhtml";
     }
     
     public String pushed(){
