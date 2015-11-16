@@ -22,30 +22,30 @@ and open the template in the editor.
         <h:outputScript library="js" name="ie10-viewport-bug-workaround.js"/>
         <h:outputScript library="js" name="ie-emulation-modes-warning.js"/>
     </head>
-    <body>
+    <h:body onload="#{threadBean.loadThreadList()}">
         <div class="container">
 
             <!-- The justified navigation menu is meant for single line per list item.
                  Multiple lines will require custom code not provided by Bootstrap. -->
             <div class="masthead">
-                <h3 class="text-muted">いｔ・・・板たちの躍動感溢れる一覧</h3>
+                <h3 class="text-muted">いたｔ・・・板たちの躍動感溢れる一覧</h3>
                 <nav>
                     <ul class="nav nav-justified">
-                        <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#">Projects</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Downloads</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Contact</a></li>
+                        <li class="active"><a href="#">いた</a></li>
+                        <li><a href="#">にっき</a></li>
+                        <li><a href="#">めも</a></li>
+                        <li><a href="#">はいしん</a></li>
+                        <li><a href="#">こんたくと</a></li>
+                        <li><a href="#">らいつべ</a></li>
                     </ul>
                 </nav>
             </div>
 
             <!-- Jumbotron -->
             <div class="jumbotron">
-                <h1>Marketing stuff!</h1>
-                <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet.</p>
-                <p><a class="btn btn-lg btn-success" href="#" role="button">Get started today</a></p>
+                <h1>落書き帳一覧</h1>
+                <p class="lead">他の人に恨まれない程度に自由に書いて、どうぞ。似たネタですでに落書き帳が出てたら乱入したほうが省スペースかつ楽しいかも？よくわからん場合はとりあえずなんでも帳でランペイジ</p>
+                <p><a class="btn btn-lg btn-success" href="#" role="button">新しい落書き帳作るわ！</a></p>
             </div>
 
             <!-- Example row of columns -->
@@ -78,5 +78,5 @@ and open the template in the editor.
 
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
         <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-    </body>
+    </h:body>
 </html>

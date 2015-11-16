@@ -6,6 +6,7 @@
 package dao;
 
 import entity.AuthEntity;
+import entity.ThreadEntity;
 import java.util.List;
 import javax.ejb.Stateless;
 
@@ -14,15 +15,19 @@ import javax.ejb.Stateless;
  * @author dni
  */
 @Stateless
-public class AuthDao extends DataAccessBase {
+public class ThreadDao extends DataAccessBase {
 
-    public AuthDao() {
-        super(AuthEntity.class);
+    public ThreadDao() {
+        super(ThreadEntity.class);
     }
     
     public Object some(Long id, String password){
         List<AuthEntity> list = em.createNamedQuery("AuthEntity.canLogin", AuthEntity.class)
                 .setParameter("id", id).setParameter("password", password).getResultList();
         return !list.isEmpty();
+    }
+
+    public List<ThreadEntity> searchRecentIgnited() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
