@@ -27,12 +27,12 @@ public class ThreadBean {
     private String message;
     
     @EJB
-    ThreadEJB postEJB;
+    ThreadEJB threadEJB;
     
     public String create(){
-        PostEntity post = new PostEntity(id, boardId, postNum, name, content, postDate, orgPost);
+        PostEntity thread = new PostEntity(id, boardId, postNum, name, content, postDate, orgPost);
         try{
-            postEJB.create(post);
+            threadEJB.create(thread);
         }catch(Exception e){
             System.out.println("error occured");
             e.printStackTrace();
