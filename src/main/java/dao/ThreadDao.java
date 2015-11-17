@@ -28,6 +28,7 @@ public class ThreadDao extends DataAccessBase {
     }
 
     public List<ThreadEntity> searchRecentIgnited() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return em.createNamedQuery("ThreadEntity.findRecentIgnited", entityClass)
+                .setMaxResults(9).getResultList();
     }
 }

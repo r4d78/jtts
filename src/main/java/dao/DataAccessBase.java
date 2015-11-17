@@ -2,7 +2,6 @@ package dao;
 
 import entity.*;
 import java.util.*;
-import javax.ejb.EJB;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -82,38 +81,6 @@ public abstract class DataAccessBase<T extends IsEntity> {
         CriteriaQuery cq = em.getCriteriaBuilder().createQuery();
         cq.select(cq.from(entityClass));
         return em.createQuery(cq).getResultList();
-    }
-
-    /**
-     * JPQLを実行してデータを取得
-     *
-     * @param jpql 実行するJPQL
-     * @return 取得したデータ
-     */
-    public List<T> executeReader(String jpql) {
-        TypedQuery q = em.createQuery(jpql, entityClass);
-        return q.getResultList();
-    }
-
-    /**
-     * JPQLを実行してデータを取得（データが1件のみの場合）
-     *
-     * @param jpql 実行するJPQL
-     * @return 取得したデータ
-     */
-    public Object executeScalar(String jpql) {
-        TypedQuery q = em.createQuery(jpql, Object.class);
-        return q.getSingleResult();
-    }
-
-    /**
-     * JPQLを実行してデータを新規登録・更新・削除
-     *
-     * @param jpql 実行するJPQL
-     */
-    public void executeNonQuery(String jpql) {
-        TypedQuery q = em.createQuery(jpql, entityClass);
-        q.executeUpdate();
     }
 
     /**

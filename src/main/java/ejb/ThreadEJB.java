@@ -2,6 +2,7 @@ package ejb;
 
 import dao.PostDao;
 import dao.ThreadDao;
+import entity.IsEntity;
 import entity.PostEntity;
 import entity.ThreadEntity;
 import java.util.List;
@@ -25,6 +26,9 @@ public class ThreadEJB {
     
     @Inject
     PostDao postDao;
+    
+    public void test(){
+    }
     
     public void create(PostEntity post){
         em.persist(post);

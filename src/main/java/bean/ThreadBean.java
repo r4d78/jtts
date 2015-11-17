@@ -29,6 +29,10 @@ public class ThreadBean {
     @EJB
     ThreadEJB threadEJB;
     
+    public void test(){
+        threadEJB.test();
+    }
+    
     public String create(){
         PostEntity thread = new PostEntity(id, boardId, postNum, name, content, postDate, orgPost);
         try{

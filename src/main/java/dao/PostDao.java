@@ -7,6 +7,7 @@ package dao;
 
 import entity.PostEntity;
 import entity.ThreadEntity;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 
@@ -25,7 +26,12 @@ public class PostDao extends DataAccessBase {
         
     }
 
-    public List<PostEntity[]> searchRecentPost(List<ThreadEntity> list) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<PostEntity[]> searchRecentPost(List<ThreadEntity> threadList) {
+        List<PostEntity[]> returnList = new ArrayList<PostEntity[]>();
+        for(ThreadEntity entity: threadList){
+            em.createNamedQuery("PostEntity.findRecentPost", entityClass)
+                .setMaxResults(5).getResultList();
+        }
+        return returnList;
     }
 }

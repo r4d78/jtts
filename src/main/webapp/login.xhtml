@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>PCログイン画面</title>
+        <f:event type="preRenderView" listener="#{LoginBean.onPageLoad('pc')}"/>
+        <h:outputStylesheet library="css" name="order.css"/>
+        <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=100.0, user-scalable=no"/>
+        <meta name="description" content=""/>
+        <meta name="keywords" content=""/>
+        <h:outputStylesheet library="css" name="jquery.mobile-1.4.5.min.css"/>
+        <h:outputScript library="js" name="jquery-1.11.2.min.js"/>
+        <h:outputScript library="js" name="jquery.mobile-1.4.5.min.js"/>
+        <!--[if lt IE 9]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+        <![endif]-->
+        <script language="JavaScript">
+            //jQuery Mobileでリダイレクト処理をするも、正しくページ遷移しない。
+            //jQuery MobileではAjaxでページ遷移をしているとのことで、
+            //下記スクリプトを追加したところ、成功。             
+            $.mobile.ajaxEnabled = false;
+        </script>
+    </h:head>
+    <script>
+        window.onunload = function(){};
+        history.forward();
+    </script>
+    <h:body>
+        <h:form>
+            <!-- ログイン画面セッションタイムアウト防止のポーリング -->
+            <p:poll interval="50" />
+            <center>
+                <div id="mobile-login" data-role="page">
+                    <div data-role="header" data-position="fixed" data-id="common_header" data-theme="b">
+                        <h1>PCログイン</h1>
+                    </div>
+                    <div data-role="content">
+                        <table>
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="ユーザー：" style="font-size: 14px;"/>
+                                </td>
+                                <td>
+                                    <h:inputText id="userCd" value="#{LoginBean.userCd}" style="font-size: 14px;"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <h:outputLabel value="パスワード：" style="font-size: 14px;"/>
+                                </td>
+                                <td>
+                                    <h:inputSecret id="password" value="#{LoginBean.password}" style="font-size: 14px;"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <h:commandButton value="ログイン"  style="font-size: 14px;" action="#{LoginBean.login('pc')}"/><br/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <h:messages id="message" showDetail="true" errorStyle="color:RED; font-size:14px;"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div data-role="footer" data-position="fixed" data-id="common_footer" data-theme="b">
+                        <h1>copyright(c) ISR</h1>
+                    </div>
+                </div>
+            </center>
+        </h:form>
+    </h:body>
+</html>
+

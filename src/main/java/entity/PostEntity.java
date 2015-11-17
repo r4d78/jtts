@@ -6,6 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import lombok.Data;
 
 /**
@@ -14,6 +16,10 @@ import lombok.Data;
  */
 @Entity
 @Data
+@NamedQueries({
+    @NamedQuery(name="PostEntity.findAll", query="SELECT p FROM PostEntity p"),
+    @NamedQuery(name="PostEntity.findRecentPost", query="SELECT p FROM PostEntity p ORDER BY p.postDate DESC")
+})
 public class PostEntity implements Serializable, IsEntity {
 
     private static final long serialVersionUID = 1L;

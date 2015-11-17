@@ -16,9 +16,10 @@ import lombok.Data;
  */
 @Entity
 @Data
-@NamedQueries(
-    @NamedQuery(name="Thread.findAll", query="SELECT t FROM ThreadEntity t")
-)
+@NamedQueries({
+    @NamedQuery(name="ThreadEntity.findAll", query="SELECT t FROM ThreadEntity t"),
+    @NamedQuery(name="ThreadEntity.findRecentIgnited", query="SELECT t FROM ThreadEntity t ORDER BY t.lastIgnite DESC, t.id DESC")
+})
 public class ThreadEntity implements Serializable, IsEntity {
 
     private static final long serialVersionUID = 1L;
