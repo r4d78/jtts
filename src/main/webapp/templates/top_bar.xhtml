@@ -6,11 +6,8 @@ and open the template in the editor.
 -->
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
     <head jsfc="h:head">
-        <title>いた一覧</title>
-
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -22,30 +19,23 @@ and open the template in the editor.
         <h:outputScript library="js" name="ie10-viewport-bug-workaround.js"/>
         <h:outputScript library="js" name="ie-emulation-modes-warning.js"/>
     </head>
-    <h:body onload="#{threadListBean.loadThreadList()}">
+    <h:body>
         <div class="container">
 
             <!-- The justified navigation menu is meant for single line per list item.
                  Multiple lines will require custom code not provided by Bootstrap. -->
-            <h:form>
-                <!-- Jumbotron -->
-                <div class="jumbotron">
-                    <h1>落書き帳一覧</h1>
-                    <p class="lead">他の人に恨まれない程度に自由に書いて、どうぞ。似たネタですでに落書き帳が出てたら乱入したほうが省スペースかつ楽しいかも？よくわからん場合はとりあえずなんでも帳でランペイジ</p>
-                    <p><h:commandButton class="btn btn-lg btn-success" action="#{threadBean.test()}" value="新しい落書き帳作るわ！" /></p>
+                <div class="masthead">
+                    <nav>
+                        <ul class="nav nav-justified" onload="#{MainBean.checkTube()}">
+                            <li class="active"><h:link outcome="thread/thread_list" value="いた" /></li>
+                            <li><a href="#">にっき</a></li>
+                            <li><a href="#">めも</a></li>
+                            <li><h:outputLink value="#{MainBean.streamURL}">はいしん</h:outputLink></li>
+                            <li><a href="http://www30.atwiki.jp/livetube/pages/2343.html">何者？</a></li>
+                            <li><a href="http://h.livetube.cc">サヨナラ！</a></li>
+                        </ul>
+                    </nav>
                 </div>
-
-                <!-- Example row of columns -->
-                <h:dataTable  value="#{ThreadBean.entityList}" var="thread" styleClass="table" id="searchResult" rendered="#{!ThreadBean.entityList.isEmpty()}" width="100%">
-                    <h:outputText value="thread.name" id="id"/>
-                </h:dataTable>
-            </h:form>
-
-            <!-- Site footer -->
-            <footer class="footer">
-                <p> Copyright 1900-2010 じんない all rights reserved </p>
-            </footer>
-
         </div> <!-- /container -->
 
 

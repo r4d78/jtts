@@ -9,7 +9,7 @@ and open the template in the editor.
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html">
     <head jsfc="h:head">
-        <title>TODO supply a title</title>
+        <title>ようこそ画面</title>
 
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -26,7 +26,7 @@ and open the template in the editor.
                 <label for="Panel1"><h:graphicImage library="image" name="menu.png"/></label>
                 <input type="checkbox" id="Panel1" class="on-off" />
                 <ul>
-                    <li><h:link outcome="thread/thread_list" value="ページ" /></li>
+                    <li><h:link outcome="main" value="ページ" /></li>
                     <li><a href="">リンク</a></li>
                     <li><a href="">リンク</a></li>
                     <li><a href="">リンク</a></li>
@@ -47,8 +47,13 @@ and open the template in the editor.
                 </div>
             </ul>
         </div>
-        <div class="authinfo">
+        <h:panelGroup class="authinfo" rendered="#{authBean.show}">
             <ui:include src="/templates/auth_info.xhtml"/>
+        </h:panelGroup>
+        <div align="center">
+            <h:form>
+                <h:selectBooleanCheckbox value="#{authBean.show}" onchange="#{authBean.refresh()}"/>
+            </h:form>
         </div>
     </body>
 </html>

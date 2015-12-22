@@ -18,9 +18,14 @@ public class AuthBean {
     private String name;
     private String password;
     private String mail;
+    private boolean show;
     
     @EJB
     AuthEJB authEJB;
+    
+    public void refresh(){
+        
+    }
 
     public void none(){
         
