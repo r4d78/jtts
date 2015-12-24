@@ -26,14 +26,16 @@ and open the template in the editor.
                  Multiple lines will require custom code not provided by Bootstrap. -->
                 <div class="masthead">
                     <nav>
-                        <ul class="nav nav-justified" onload="#{MainBean.checkTube()}">
-                            <li class="active"><h:link outcome="thread/thread_list" value="いた" /></li>
-                            <li><a href="#">にっき</a></li>
-                            <li><a href="#">めも</a></li>
-                            <li><h:outputLink value="#{MainBean.streamURL}">はいしん</h:outputLink></li>
+                        <h:form>
+                        <ul class="nav nav-justified" onload="#{MainBean.refreshStat()}">
+                            <li class="#{MainBean.class1}"><h:link onclick="#{MainBean.switch1()}" value="いた" /></li>
+                            <li class="#{MainBean.class2}"><h:link onclick="#{MainBean.switch2()}" value="にっき" /></li>
+                            <li class="#{MainBean.class3}"><h:commandLink value="#" action="#{MainBean.switch3()}" >memo </h:commandLink></li>
+                            <li><h:outputLink value="#{MainBean.streamURL}">はいしん (<h:outputText value="online" rendered="#{MainBean.streaming}" style="color:blue"/><h:outputText value="offline" rendered="#{!MainBean.streaming}" style="color:red"/>)</h:outputLink></li>
                             <li><a href="http://www30.atwiki.jp/livetube/pages/2343.html">何者？</a></li>
                             <li><a href="http://h.livetube.cc">サヨナラ！</a></li>
                         </ul>
+                        </h:form>
                     </nav>
                 </div>
         </div> <!-- /container -->
@@ -41,5 +43,8 @@ and open the template in the editor.
 
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
         <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+        <h:outputText value="tab1 #{MainBean.class1}"/> <br />
+        <h:outputText value="tab2 #{MainBean.class2}"/> <br />
+        <h:outputText value="tab3 #{MainBean.class3}"/> <br />
     </h:body>
 </html>

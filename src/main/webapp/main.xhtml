@@ -7,10 +7,20 @@ and open the template in the editor.
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <body>
         <ui:include src="/templates/top_bar.xhtml"/>
-        <ui:include src="/thread/thread_list.xhtml"/>
-        <h:outputText value="#{MainBean.streamURL}"/>
+        <c:if test="#{!MainBean.tab1 and !MainBean.tab2 and !MainBean.tab3}">
+            <ui:include src="/templates/welcome.xhtml"/>
+        </c:if>
+        <c:if test="#{MainBean.tab1}">
+            <ui:include src="/thread/thread_list.xhtml"/>
+        </c:if>
+        <c:if test="#{MainBean.tab2}">
+            <ui:include src="/templates/welcome.xhtml"/>
+        </c:if>
+        <c:if test="#{MainBean.tab3}">
+            <ui:include src="/templates/welcome.xhtml"/>
+        </c:if>
     </body>
 </html>
