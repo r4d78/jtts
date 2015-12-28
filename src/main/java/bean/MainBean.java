@@ -27,12 +27,9 @@ public class MainBean {
     private boolean isStreaming;
     private String streamURL;
     private String greet;
-    private boolean tab1;
-    private boolean tab2;
-    private boolean tab3;
-    private String class1;
-    private String class2;
-    private String class3;
+    private String tab1;
+    private String tab2;
+    private String tab3;
 
     /**
      * コンストラクタ
@@ -53,7 +50,6 @@ public class MainBean {
             default:
                 greet = "はいこんばんは";
         }
-        tab1 = true;
         try {
             URL urlObj = new URL("http://livetube.cc/index.live.json");
             HttpURLConnection http = (HttpURLConnection) urlObj.openConnection();
@@ -77,18 +73,18 @@ public class MainBean {
     }
     
     public void switch1(){
-        class1 = "active";
-        class2 = "";
-        class3 = "";
+        tab1 = "active";
+        tab2 = "";
+        tab3 = "";
     }
     public void switch2(){
-        class2 = "active";
-        class1 = "";
-        class3 = "";
+        tab2 = "active";
+        tab1 = "";
+        tab3 = "";
     }
     public void switch3(){
-        class3 = "active";
-        class1 = "";
-        class2 = "";
+        tab3 = "active";
+        tab1 = "";
+        tab2 = "";
     }
 }

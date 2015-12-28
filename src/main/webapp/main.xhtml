@@ -7,20 +7,23 @@ and open the template in the editor.
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
     <body>
         <ui:include src="/templates/top_bar.xhtml"/>
-        <c:if test="#{!MainBean.tab1 and !MainBean.tab2 and !MainBean.tab3}">
+        <h:panelGroup id="content">
+        <c:if test="#{MainBean.tab1=='' and MainBean.tab2=='' and MainBean.tab3==''}">
             <ui:include src="/templates/welcome.xhtml"/>
         </c:if>
-        <c:if test="#{MainBean.tab1}">
+        <c:if test="#{MainBean.tab1=='active'}">
             <ui:include src="/thread/thread_list.xhtml"/>
         </c:if>
-        <c:if test="#{MainBean.tab2}">
-            <ui:include src="/templates/welcome.xhtml"/>
+        <c:if test="#{MainBean.tab2=='active'}">
+            <ui:include src="/login.xhtml"/>
         </c:if>
-        <c:if test="#{MainBean.tab3}">
-            <ui:include src="/templates/welcome.xhtml"/>
+        <c:if test="#{MainBean.tab3=='active'}">
+            <ui:include src="/loginerror.xhtml"/>
         </c:if>
+        </h:panelGroup>
     </body>
 </html>
