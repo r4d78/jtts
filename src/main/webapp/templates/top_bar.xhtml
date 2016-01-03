@@ -32,7 +32,7 @@ and open the template in the editor.
                             <li class="#{MainBean.tab1}"><h:commandLink value="#" action="#{MainBean.switch1()}" > いた <f:ajax execute="@form" render="navbar content"/></h:commandLink></li>
                             <li class="#{MainBean.tab2}"><h:commandLink value="#" action="#{MainBean.switch2()}" >にっき <f:ajax execute="@form" render="navbar content"/></h:commandLink></li>
                             <li class="#{MainBean.tab3}"><h:commandLink value="#" action="#{MainBean.switch3()}" >memo <f:ajax execute="@form" render="navbar content"/></h:commandLink></li>
-                            <li><h:outputLink value="#{MainBean.streamURL}">はいしん (<h:outputText value="online" rendered="#{MainBean.streaming}" style="color:blue"/><h:outputText value="offline" rendered="#{!MainBean.streaming}" style="color:red"/>)</h:outputLink></li>
+                            <li ><h:outputLink value="#{MainBean.streamURL}">はいしん (<h:outputText value="online" rendered="#{MainBean.streaming}" style="color:blue"/><h:outputText value="offline" rendered="#{!MainBean.streaming}" style="color:red"/>)</h:outputLink></li>
                             <li><a href="http://www30.atwiki.jp/livetube/pages/2343.html">何者？</a></li>
                             <li><a href="http://h.livetube.cc">サヨナラ！</a></li>
                         </ul>

@@ -2,7 +2,6 @@ package ejb;
 
 import dao.PostDao;
 import dao.ThreadDao;
-import entity.IsEntity;
 import entity.PostEntity;
 import entity.ThreadEntity;
 import java.util.List;
